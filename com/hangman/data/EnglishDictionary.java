@@ -1,6 +1,6 @@
 package com.hangman.data;
 
-
+import java.sql.Connection;
 
 /*
  * The EnglishDictionary class serves as an abstraction from the MySQL database that contains
@@ -11,9 +11,25 @@ package com.hangman.data;
  */
 public class EnglishDictionary {
 	
+	private Database englishDictData = null;
+	private Connection dataConnection = null;
+	
 	public EnglishDictionary() {
 		
+		englishDictData = new Database(Database.DEFUALT_SERVER_INFO);
+	}
+	
+	public void openConnection() {
 		
+		try {
+			dataConnection = englishDictData.getConnection();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (dataConnection != null) {
+			System.out.println("{ " + englishDictData.getServerDetails() + " }\n");
+		}
 	}
 
 }
