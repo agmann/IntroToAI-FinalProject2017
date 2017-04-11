@@ -23,7 +23,7 @@ public class Database {
 	private String dbms = null;//"mysql";
 	private String serverName = null;//"192.168.20.180";
 	private String portNumber = null;//"3306";
-	private String dbName = null;//"entries";
+	public String dbName = null;//"entries";
 	
 	public Database(String paramsFile) {
 		File params = new File(paramsFile);
