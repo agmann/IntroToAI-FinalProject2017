@@ -1,5 +1,7 @@
 package com.hangman.data;
 
+
+
 /*
  * The EnglishDictionary class serves as an abstraction from the MySQL database that contains
  * words from the English dictionary. 
@@ -8,6 +10,10 @@ package com.hangman.data;
  * any game-play/AI implementation, solely code that serves data from a MySQL server. 
  */
 public class EnglishDictionary {
-
+	
+	public EnglishDictionary() {
+		
+		
+	}
 
 }

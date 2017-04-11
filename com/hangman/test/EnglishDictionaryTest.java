@@ -14,6 +14,7 @@ public class EnglishDictionaryTest {
 	public void isNotNull_test() {
 		EnglishDictionary ed = new EnglishDictionary();
 		Assert.assertNotEquals(null, ed);
+		
 	}
 
 }
