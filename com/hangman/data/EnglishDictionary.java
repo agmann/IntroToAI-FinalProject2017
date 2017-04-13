@@ -2,11 +2,7 @@ package com.hangman.data;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -134,23 +130,44 @@ public class EnglishDictionary {
 	}
 	
 	/*
-	 * returns a new version of an input ArrayList<String> without all elements that don't match the structure of
-	 * the input string @param match. Use '_' character for single char wild-cards.
+	 * modifies an input ArrayList<String>, removes all elements that don't match the structure of
+	 * the input string @param match. Use '_' character for single char wild-cards, use '*' for 
+	 * unique to previous character wild-cards 
 	 */
-	public void refineListForWordsMatching(ArrayList<String> words, String match) {
+	public static void refineListForWordsMatching(ArrayList<String> words, String match) {
 		ArrayList<String> deleteList = new ArrayList<String>();
 		for (int i = 0; i < words.size(); i++) {
 			String word = words.get(i);
 			if (word.length() == match.length()) {
+				char prev = 0;
 				for (int j = 0; j < match.length(); j++) {
 					char key = match.charAt(j);
-					if (key != '_') {
+					if (key != '_' && key != '*') {
 						if (word.charAt(j) != key) {
 							deleteList.add(word);
 							break;
 						}
 					}
+					else if (key == '*') {
+						if (word.charAt(j) == prev) {
+							deleteList.add(word);
+							break;
+						}
+					}
+					prev = key;
 				}
+			}
+		}
+		for (String s : deleteList) {
+			words.remove(s);
+		}
+	}
+	
+	public static void refineListForWordsThatDontContain(ArrayList<String> words, String contain) {
+		ArrayList<String> deleteList = new ArrayList<String>();
+		for (String word : words) {
+			if (word.contains(contain)) {
+				deleteList.add(word);
 			}
 		}
 		for (String s : deleteList) {
