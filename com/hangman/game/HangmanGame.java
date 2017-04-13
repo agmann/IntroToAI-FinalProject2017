@@ -6,12 +6,11 @@ import com.hangman.data.EnglishDictionary;
 
 public class HangmanGame {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		EnglishDictionary dict = new EnglishDictionary();
-		dict.openConnection();
-		ArrayList<String> words = new ArrayList<>();
-		String lookup = "b";
-		int wordLength = 2;
+		ArrayList<String> words = new ArrayList<String>();
+		String lookup = "clas";
+		int wordLength = 5;
 		
 		words = dict.getWordsThatStartWith(lookup, wordLength);
 		
@@ -21,12 +20,14 @@ public class HangmanGame {
 		}
 		
 		lookup = "ass";
-		words = dict.getWordsThatContain(lookup);
+		dict.refineListForWordsMatching(words, "____s");
 		
-		System.out.println("Found " + words.size() + " words that contain " + lookup + " and have length of " + "any" + ":");
+		System.out.println("Refined word list, new size is " + words.size() + ":");
 		for (String word : words) {
 			System.out.println(word);
 		}
+		
+	
 	}
 
 }

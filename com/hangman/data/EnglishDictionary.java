@@ -1,10 +1,17 @@
 package com.hangman.data;
-import java.sql.*;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /*
- * The EnglishDictionary class serves as an abstraction from the MySQL database that contains
+ * The EnglishDictionary class serves as an abstraction from the text file that contains
  * words from the English dictionary. 
  * The methods provided in this class will be used in the com.hangman.game package to 
  * parse available English words so that the AI player can guess the word. This class should not contain 
@@ -12,101 +19,143 @@ import java.util.ArrayList;
  */
 public class EnglishDictionary {
 	
-	private Database englishDictData = null;
-	private Connection dataConnection = null;
+	private final String DATA_FILENAME = "input/words.txt";
+	private File wordsFile;
 	
 	public EnglishDictionary() {
 		
-		englishDictData = new Database(Database.DEFUALT_SERVER_INFO);
+		wordsFile = new File(DATA_FILENAME);
 	}
 	
-	/*
-	 * Open the connection to the mySQL database
-	 */
-	public void openConnection() {
-		
-		try {
-			dataConnection = englishDictData.getConnection();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if (dataConnection != null) {
-			System.out.println("{ " + englishDictData.getServerDetails() + " }\n");
-		}
-	}
+	
 	
 	/*
 	 * returns an ArrayList<String> of all the words that begin with the input string @param start
 	 * optional @param wordLength specifies the exact length of the words being searched for.
 	 */
-	public ArrayList<String> getWordsThatStartWith(String start) throws Exception {
-		if (dataConnection == null) {
-			throw new Exception("Connection was not opened. Use openConnection() before making this call.");
-		}
+	public ArrayList<String> getWordsThatStartWith(String start)  {
 		
-		start = start.toLowerCase();
-		ArrayList<String> words = new ArrayList<String>();
-		String query = "SELECT word FROM " + englishDictData.dbName + ".entries" + " WHERE word LIKE \'" + start + "%" +"\'";
-		
-		words = runQueryToStringList(query);
-		return words;
+		return getWordsThatStartWith(start, -1);
 				
 	}
 	
-	public ArrayList<String> getWordsThatStartWith(String start, int wordLength) throws Exception {
-		ArrayList<String> words = new ArrayList<String>();
-		if (dataConnection == null) {
-			throw new Exception("Connection was not opened. Use openConnection() before making this call.");
-		}
-		if (start.length() > wordLength) {
-			return words;
-		}
+	public ArrayList<String> getWordsThatStartWith(String start, int wordLength) {
+		
 		start = start.toLowerCase();
-		String search = start;
-		for (int i = 0; i < wordLength-start.length(); i++) {
-			search += "_";
-		}
-		String query = "SELECT word FROM " + englishDictData.dbName + ".entries" + " WHERE word LIKE \'" + search +"\'";
-
-		words = runQueryToStringList(query);
-		return words;
-		
-		
-	}
-	
-	public ArrayList<String> getWordsThatContain(String contain) throws Exception {
-		if (dataConnection == null) {
-			throw new Exception("Connection was not opened. Use openConnection() before making this call.");
-		}
-		
-		contain = contain.toLowerCase();
 		ArrayList<String> words = new ArrayList<String>();
-		String query = "SELECT word FROM " + englishDictData.dbName + ".entries" + " WHERE word LIKE \'%" + contain + "%" +"\'";
-		
-		words = runQueryToStringList(query);
-		return words;
-	}
-	
-	private ArrayList<String> runQueryToStringList(String query) {
-		ArrayList<String> words = new ArrayList<String>();
-		Statement st;
-		ResultSet rs;
 		try {
-			st = dataConnection.createStatement();
-			rs = st.executeQuery(query);
-			while (rs.next()) {
-				String value = rs.getString("word");
-				if (!words.contains(value)) {
-					words.add(value);
+			FileInputStream in = new FileInputStream(new File(DATA_FILENAME));
+			Scanner scan = new Scanner(in);
+			while (scan.hasNext()) {
+				String word = scan.nextLine();
+				word = word.toLowerCase();
+				if (word.startsWith(start) && (word.length() == wordLength || wordLength == -1)) {
+					words.add(word);
 				}
 			}
-			st.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			scan.close();
+			in.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return words;
+		
+	}
+	
+	/*
+	 * returns an ArrayList<String> of all the words that end with the input string @param end
+	 * optional @param wordLength specifies the exact length of the words being searched for.
+	 */
+	public ArrayList<String> getWordsThatEndWith(String end)  {
+		
+		return getWordsThatEndWith(end, -1);
+				
+	}
+	
+	public ArrayList<String> getWordsThatEndWith(String end, int wordLength) {
+		
+		end = end.toLowerCase();
+		ArrayList<String> words = new ArrayList<String>();
+		try {
+			FileInputStream in = new FileInputStream(new File(DATA_FILENAME));
+			Scanner scan = new Scanner(in);
+			while (scan.hasNext()) {
+				String word = scan.nextLine();
+				word = word.toLowerCase();
+				if (word.endsWith(end) && (word.length() == wordLength || wordLength == -1)) {
+					words.add(word);
+				}
+			}
+			scan.close();
+			in.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return words;
+		
+	}
+	
+	
+	/*
+	 * returns an ArrayList<String> of all the words that contain the input string @param contain
+	 * optional @param wordLength specifies the exact length of the words being searched for.
+	 */
+	public ArrayList<String> getWordsThatContain(String contain)  {
+		
+		return getWordsThatContain(contain, -1);
+	}
+	
+	public ArrayList<String> getWordsThatContain(String contain, int wordLength)  {
+		
+		contain = contain.toLowerCase();
+		ArrayList<String> words = new ArrayList<String>();
+		try {
+			FileInputStream in = new FileInputStream(wordsFile);
+			Scanner scan = new Scanner(in);
+			while (scan.hasNext()) {
+				String word = scan.nextLine();
+				word = word.toLowerCase();
+				if (word.contains(contain) && (word.length() == wordLength || wordLength == -1)) {
+					words.add(word);
+				}
+			}
+			scan.close();
+			in.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return words;
+	}
+	
+	/*
+	 * returns a new version of an input ArrayList<String> without all elements that don't match the structure of
+	 * the input string @param match. Use '_' character for single char wild-cards.
+	 */
+	public void refineListForWordsMatching(ArrayList<String> words, String match) {
+		ArrayList<String> deleteList = new ArrayList<String>();
+		for (int i = 0; i < words.size(); i++) {
+			String word = words.get(i);
+			if (word.length() == match.length()) {
+				for (int j = 0; j < match.length(); j++) {
+					char key = match.charAt(j);
+					if (key != '_') {
+						if (word.charAt(j) != key) {
+							deleteList.add(word);
+							break;
+						}
+					}
+				}
+			}
+		}
+		for (String s : deleteList) {
+			words.remove(s);
+		}
 	}
 
 }
