@@ -9,20 +9,21 @@ public class HangmanGame {
 	public static void main(String[] args) {
 		EnglishDictionary dict = new EnglishDictionary();
 		ArrayList<String> words = new ArrayList<String>();
-		String lookup = "clas";
+		String lookup = "l";
 		int wordLength = 5;
 		
-		words = dict.getWordsThatStartWith(lookup, wordLength);
+		words = dict.getWordsThatContain(lookup, wordLength);
 		
-		System.out.println("Found " + words.size() + " words that start with " + lookup + " and have length of " + wordLength + ":");
+		System.out.println("Found " + words.size() + " words that contain " + lookup + " and have length of " + wordLength + ":");
 		for (String word : words) {
 			System.out.println(word);
 		}
 		
 		lookup = "ass";
-		dict.refineListForWordsMatching(words, "____s");
+		String matching = "c_as_";
+		dict.refineListForWordsMatching(words, matching);
 		
-		System.out.println("Refined word list, new size is " + words.size() + ":");
+		System.out.println("Refined word list, all words must match \'" + matching + "\' \nnew size is " + words.size() + ":");
 		for (String word : words) {
 			System.out.println(word);
 		}
