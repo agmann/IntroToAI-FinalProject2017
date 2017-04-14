@@ -18,6 +18,20 @@ public class HangmanGame {
       int matchFlag;
       int incorrect = 0, correct = 0;
       
+      
+      System.out.println("");
+      System.out.println("   _______");
+      System.out.println("  |       |");
+      System.out.println("  |       |");
+      System.out.println("  |");
+      System.out.println("  |");
+      System.out.println("  |");
+      System.out.println("  |");
+      System.out.println("  |");
+      System.out.println("  |");
+      System.out.println("------------");
+      System.out.println("");
+      
       System.out.println("Enter your word for the Hangman Game: ");
       String selectedWord = scan.nextLine();
       
@@ -88,6 +102,98 @@ public class HangmanGame {
          else if(matchFlag == 0)
          {
             incorrect++;
+            if(incorrect == 1)
+            {
+               System.out.println("");
+               System.out.println("   _______");
+               System.out.println("  |       |");
+               System.out.println("  |       |");
+               System.out.println("  |       O");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("------------");
+               System.out.println("");
+            }
+            else if(incorrect == 2)
+            {
+               System.out.println("");
+               System.out.println("   _______");
+               System.out.println("  |       |");
+               System.out.println("  |       |");
+               System.out.println("  |       O");
+               System.out.println("  |       |");
+               System.out.println("  |       |");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("------------");
+               System.out.println("");
+            }
+            else if(incorrect == 3)
+            {
+               System.out.println("");
+               System.out.println("   _______");
+               System.out.println("  |       |");
+               System.out.println("  |       |");
+               System.out.println("  |       O");
+               System.out.println("  |     --|");
+               System.out.println("  |       |");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("------------");
+               System.out.println("");
+            }
+            else if(incorrect == 4)
+            {
+               System.out.println("");
+               System.out.println("   _______");
+               System.out.println("  |       |");
+               System.out.println("  |       |");
+               System.out.println("  |       O");
+               System.out.println("  |     --|--");
+               System.out.println("  |       |");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("------------");
+               System.out.println("");
+            }            
+            else if(incorrect == 5)
+            {
+               System.out.println("");
+               System.out.println("   _______");
+               System.out.println("  |       |");
+               System.out.println("  |       |");
+               System.out.println("  |       O");
+               System.out.println("  |     --|--");
+               System.out.println("  |       |");
+               System.out.println("  |      / ");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("------------");
+               System.out.println("");
+            }                 
+            else if(incorrect == 6)
+            {
+               System.out.println("");
+               System.out.println("   _______");
+               System.out.println("  |       |");
+               System.out.println("  |       |");
+               System.out.println("  |       O");
+               System.out.println("  |     --|--");
+               System.out.println("  |       |");
+               System.out.println("  |      / \\");
+               System.out.println("  |");
+               System.out.println("  |");
+               System.out.println("------------");
+               System.out.println("");
+            }   
+            
+            
             System.out.println("The AI has made " + incorrect + " incorrect guess(es)");
             if(incorrect == 6)
             {
