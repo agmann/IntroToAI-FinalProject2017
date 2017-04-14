@@ -1,0 +1,313 @@
+1 Word Selected: A
+	Letters guessed: o, i, e, a
+	# of incorrect guesses: 3 
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool: N/A
+
+2	Word Selected: Am
+	Letters guessed: o, a, y, l, s, x, b
+	# of incorrect guesses: 6
+	Result: Loss
+	(If loss)# of words left in pool: 8
+	(If loss)words left in pool: a-, ae, ah, ai, am, an, ar, at
+
+3	Word Selected: Zap(This word was apparently not in the dictionary)
+	Letters guessed: a, t, n, p, r, c, l, m
+	# of incorrect guesses: 6
+	Result: Loss
+	(If loss)# of words left in pool: 10
+	(If loss)words left in pool: dap, fap, gap, hap, pap, sap, sap, vap, wap, yap
+
+4	Word Selected: See
+	Letters guessed: a, e, f, l, s
+	# of incorrect guesses: 3
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+5	Word Selected: Bum
+	Letters guessed: a, e, o, i, u, b, t, d
+	# of incorrect guesses: 6
+	Result: Loss
+	(If loss)# of words left in pool: 9
+	(If loss)words left in pool: bub, bug, bum, bum, bun, bur, bus, buy, buz
+
+6	Word Selected: Ram
+	Letters guessed: a, t, n, p, d, r, g, m
+	# of incorrect guesses: 5
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+7	Word Selected: Rose
+	Letters guessed: e, a, o, r, v, b, d, p, s
+	# of incorrect guesses: 5
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+8	Word Selected: Bilk(meant to type bulk, but ran it anyways)
+	Letters guessed: e, a, o, i, l, t, k, m, b
+	# of incorrect guesses: 5
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+9	Word Selected: Bulk
+	Letters guessed: e, a, o, i, u, l, p, b, k
+	# of incorrect guesses: 5
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+
+10	Word Selected: Game
+	Letters guessed: e, a, r, m, c, f, g
+	# of incorrect guesses: 3
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool:N/A
+
+11	Word Selected: Time
+	Letters guessed: e, a, o, i, l, r, d, n, 
+	# of incorrect guesses: 6
+	Result: Loss
+	(If loss)# of words left in pool: 65
+	(If loss)words left in pool: bice, bise, bike, bise, bite, cite, cive,
+	cize, fice, fife, fife, fike, five, gibe, gise, gite, give, hive, hive,
+	-ise, -ite, -ive, -ize, jibe, kibe, kike, kipe, kite, kive, mice, mime,
+	mise, mite, mice, pice, pike, pipe, pipe, pise, sipe, sice, sike, sise,
+	site, size, size, tice, tike, time, time, vice, vice, vise, vise, vive,
+	wife, wike, wipe, wipe, wise, wite, wite, wive, yite, yive, 
+
+12	Word Selected: Food
+	Letters guessed: e, a, o, t, l, r, p 
+	# of incorrect guesses: 6
+	Result: Loss
+	(If loss)# of words left in pool: 32
+	(If loss)words left in pool: book, book, boom, boom, boon, cook, cook,
+	coom, coon, doom, doom, food, good, hood, hood, hoof, hook, hook,hoom,
+	mood, moon, moon, nook, noon, soon, wood, wood, woof, wook, woon, zoo-, zoon
+
+13	Word Selected:Aeon
+	Letters guessed: e, l, r, t, s, n, a, o
+	# of incorrect guesses: 4
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool:N/A
+
+14	Word Selected: Mile
+	Letters guessed: e, a, o, i, l, f, p, t, b, 
+	# of incorrect guesses: 6
+	Result: Loss
+	(If loss)# of words left in pool: 8
+	(If loss)words left in pool: gile, hile, mile, nile, rile, sile, vile, wile
+
+15	Word Selected: Bunny
+	Letters guessed: e, a, o, i, u, y, l, t, 
+	# of incorrect guesses: 6 
+	Result: Loss
+	(If loss)# of words left in pool: 69
+	(If loss)words left in pool: bubby, budgy, buffy, buggy, buggy, bunny, burry,
+	busby, bushy, busky, cubby, cuddy, cuffy, curdy, curry, duchy, dummy, dummy,
+	dumpy, dungy, dunny, dusky, fubby, fubsy, fuffy, funky, funny, funny, furry,
+	furzy, fussy, fuzzy, gummy, gunny, gurmy, gurry, hubby, huffy, humpy, hurry,
+	husky, hussy, mucky, muddy, muddy, muggy, mummy, mummy, murky, murry, mushy,
+	musky, mussy, muzzy, pudgy, puffy, pungy, puppy, puppy, pursy, pussy, ruddy,
+	ruggy, rummy, rummy, rushy, sunny, surfy, surgy
+
+16	Word Selected: Round
+	Letters guessed: e, a, o, u, d, n, f, w, b, p, 
+	# of incorrect guesses: 6
+	Result: Loss
+	(If loss)# of words left in pool: 8
+	(If loss)words left in pool: hound, hound, mound, mound, round, round
+	sound, sound
+
+17	Word Selected: Crude
+	Letters guessed: e, a, o, i, r, u, d, c,  
+	# of incorrect guesses: 3
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+18	Word Selected: Train
+	Letters guessed: e, a, s, r, n, i, b, g, d, t
+	# of incorrect guesses: 5
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool:N/A
+
+19	Word Selected: Enter
+	Letters guessed:e, r, d, t, a, n, 
+	# of incorrect guesses: 2
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+20	Word Selected: Acorn
+	Letters guessed: e, a, l, r, n, o, c
+	# of incorrect guesses: 2
+	Result:Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+21	Word Selected: Brawn
+	Letters guessed: e, a, s, r, n, i, w, d, b
+	# of incorrect guesses: 4
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool:N/A
+
+22	Word Selected: Medic
+	Letters guessed: e, r, t, l, n, d, i, m ,a, c
+	# of incorrect guesses: 5
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool:N/A
+	
+23	Word Selected: Zebra
+	Letters guessed: e, r, a, l, n, s, t, y, z, b
+	# of incorrect guesses: 5
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+
+24	Word Selected: Master
+	Letters guessed: e, r, a, t, s, m
+	# of incorrect guesses: 0
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool:N/A
+
+25	Word Selected: Gamble
+	Letters guessed: e, a, l, b, r, m, f, g
+	# of incorrect guesses: 2
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool:N/A
+
+
+26	Word Selected: Police
+	Letters guessed: e, a, i, n, r, l, o, p, c
+	# of incorrect guesses: 3
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+
+27	Word Selected: Tracer
+	Letters guessed: e, r, a, c, b, t
+	# of incorrect guesses: 1
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool: N/A
+
+
+28	Word Selected: Broken
+	Letters guessed: e, r, d, a, o, p, n ,k, b
+	# of incorrect guesses: 3
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool:N/A
+
+
+29	Word Selected: Relish
+	Letters guessed: e, r, t, a, i, l, f s, h
+	# of incorrect guesses: 3
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+30	Word Selected: Church
+	Letters guessed: e, a, i, o, u, y, c, ,h ,r
+	# of incorrect guesses:5
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool:N/A
+
+
+31	Word Selected: Supper
+	Letters guessed: e, r, a, o, i, u, l, t, m, 
+	# of incorrect guesses: 6
+	Result: Loss
+	(If loss)# of words left in pool: 53
+	(If loss)words left in pool: bucker, budger, buffer, bugger, bunder,
+	bunker, burner, buzzer, cunner, cupper, curser, dubber, ducker, dudder,
+	duffer, dunder, dunker, dunner, dupper, fudder, gueber, guffer, gunner,
+	gusher, hubner, huffer, hugger, hunger, hunger, hunker, husher, judger,
+	jugger, junker, nurser, pucker, pudder, puffer, pugger, punner, purger,
+	purser, pusher, rubber, rudder, runner, rusher, sucker, sucker, suffer,
+	sunder, supper, surfer
+
+
+32	Word Selected: Dinner
+	Letters guessed: e, r,a ,o, i, t, n, d
+	# of incorrect guesses: 3
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+	
+33	Word Selected: Ostrich
+	Letters guessed: e, i, n, s, c, t, r, a,o, h
+	# of incorrect guesses: 3
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool: N/A
+	
+34	Word Selected: Uniform
+	Letters guessed: e, i, n, a, u, t, o, r, c, f, m
+	# of incorrect guesses: 4
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+	
+35	Word Selected: Revenge
+	Letters guessed: e, r, s, v, n, g
+	# of incorrect guesses: 1
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+	
+36	Word Selected: Brooding
+	Letters guessed: i, n, g, l, r, t, b, o, d
+	# of incorrect guesses: 3
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool: N/A
+	
+37	Word Selected: Computer
+	Letters guessed: e, r, t, s, a, o, m, p, c, u
+	# of incorrect guesses: 2
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+	
+38	Word Selected: Treasure
+	Letters guessed: e, r, t, s, u, a
+	# of incorrect guesses: 0
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool:N/A
+	
+39	Word Selected: Relevant
+	Letters guessed: e, r, s, d, l, a, t, v, n
+	# of incorrect guesses: 2
+	Result: Win
+	(If loss)# of words left in pool: N/A
+	(If loss)words left in pool: N/A
+	
+40	Word Selected: Celebrate
+	Letters guessed: e, r, t, a, c, b, i
+	# of incorrect guesses: 0
+	Result: Win
+	(If loss)# of words left in pool:N/A
+	(If loss)words left in pool:N/A
+
+9/40 Losses
+31/40 Wins
+Avg. Guesses for Win = 3.03 guesses
+most commonly guessed vowels first, as expected.
+smaller hards proved more difficult than larger words based on tests.
