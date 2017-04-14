@@ -13,12 +13,12 @@ public class HangmanGame {
 		
       Scanner scan = new Scanner(System.in);
       String[] guessedLetters = new String[26];//array to keep track of guessed letters
-      int arraySize = 0;//variable to keep track of how many indexes in array are filled
+      int arraySize = 0;//keeps track of how many indexes in guessedLetters array are filled
       String mostCommonLetter, matching = "";
-      int matchFlag;
-      int incorrect = 0, correct = 0;
+      int matchFlag;//flag variable to indicate if letter is in word
+      int incorrect = 0, correct = 0;//variables to track number of correct and incorrect guesses
       
-      
+      //displays the hangman setup
       System.out.println("");
       System.out.println("   _______");
       System.out.println("  |       |");
@@ -34,25 +34,19 @@ public class HangmanGame {
       
       System.out.println("Enter your word for the Hangman Game: ");
       String selectedWord = scan.nextLine();
-      
-      System.out.println("Entered word is: " + selectedWord);
-
+      selectedWord = selectedWord.toLowerCase();
+      System.out.println();
       int wordLength = selectedWord.length();
-      
-      System.out.println("length of word is: " + wordLength);
 
+      //initializes the word list with all words with same length as user's entered word
       words = dict.getWordsThatContain("", wordLength);
-      //for (String word : words) {
-		//	System.out.println(word);
-		//}
       
+      //loops until only one word is left in the list or other conditions have been met
       while(words.size() > 1)
       {
          matchFlag = 0;
       
          mostCommonLetter = wordFrequency(words, wordLength, guessedLetters, arraySize);
-      
-         System.out.println("most common letter in word pool: " + mostCommonLetter);
       
          System.out.println("AI guesses the letter: " + mostCommonLetter);
       
@@ -61,202 +55,73 @@ public class HangmanGame {
             break;
             
          matching = "";
+         //loop to generate string used to refine word list
          for(int i = 0; i < wordLength; i++)
          {
             String letter = Character.toString(selectedWord.charAt(i));
             if(mostCommonLetter.equals(letter))
             {
+               //if letter at position i matches, append the letter 
                matching = matching.concat(mostCommonLetter);
                matchFlag = 1;
                correct++;
             }
             else
             {
+               //append * symbol is letter at position i is not a match
                matching = matching.concat("*");
             }
          }
-        
          
-         System.out.println("Current String: " + matching);
-
+     
          if(matchFlag == 1)
          {
+            //removes words in list that do not contain the correct letter at the specified position(s)
             EnglishDictionary.refineListForWordsMatching(words, matching);
-            for (String word : words) {
-	   	      System.out.println(word);
-	 	      }
-            
+
+            //condition for if all letters in the word have been guessed.
             if(correct == wordLength)
             {
-               System.out.println("All letters are known, the AI guesses: " + words.get(0));
+               for (int i = 0; i < words.size(); i++) {
+                  System.out.println("The AI guesses the word: " + words.get(i));
             
-               if((words.get(0)).equals(selectedWord))
-               {
-                  System.out.println("The AI has guessed the word successfully. The AI wins!");
+                  if((words.get(i)).equals(selectedWord))
+                  {
+                    System.out.println("The AI has guessed the word successfully. The AI wins!");
+                    break;
+                  }
+                  else
+                  {
+                     incorrect++;
+                     displayHangman(incorrect);
+                     if(incorrect == 6)
+                        break;
+                  }             
                }
-               
                break;
-               //this happens when all letters are "known"
             }
          }
          else if(matchFlag == 0)
          {
             incorrect++;
-            if(incorrect == 1)
-            {
-               System.out.println("");
-               System.out.println("   _______");
-               System.out.println("  |       |");
-               System.out.println("  |       |");
-               System.out.println("  |       O");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("------------");
-               System.out.println("");
-            }
-            else if(incorrect == 2)
-            {
-               System.out.println("");
-               System.out.println("   _______");
-               System.out.println("  |       |");
-               System.out.println("  |       |");
-               System.out.println("  |       O");
-               System.out.println("  |       |");
-               System.out.println("  |       |");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("------------");
-               System.out.println("");
-            }
-            else if(incorrect == 3)
-            {
-               System.out.println("");
-               System.out.println("   _______");
-               System.out.println("  |       |");
-               System.out.println("  |       |");
-               System.out.println("  |       O");
-               System.out.println("  |     --|");
-               System.out.println("  |       |");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("------------");
-               System.out.println("");
-            }
-            else if(incorrect == 4)
-            {
-               System.out.println("");
-               System.out.println("   _______");
-               System.out.println("  |       |");
-               System.out.println("  |       |");
-               System.out.println("  |       O");
-               System.out.println("  |     --|--");
-               System.out.println("  |       |");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("------------");
-               System.out.println("");
-            }            
-            else if(incorrect == 5)
-            {
-               System.out.println("");
-               System.out.println("   _______");
-               System.out.println("  |       |");
-               System.out.println("  |       |");
-               System.out.println("  |       O");
-               System.out.println("  |     --|--");
-               System.out.println("  |       |");
-               System.out.println("  |      / ");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("------------");
-               System.out.println("");
-            }                 
-            else if(incorrect == 6)
-            {
-               System.out.println("");
-               System.out.println("   _______");
-               System.out.println("  |       |");
-               System.out.println("  |       |");
-               System.out.println("  |       O");
-               System.out.println("  |     --|--");
-               System.out.println("  |       |");
-               System.out.println("  |      / \\");
-               System.out.println("  |");
-               System.out.println("  |");
-               System.out.println("------------");
-               System.out.println("");
-            }   
+            System.out.println("The letter " + mostCommonLetter + " is not in the word.");
+            //draw new hangman setup as incorrect variable increases
+            displayHangman(incorrect);
             
-            
-            System.out.println("The AI has made " + incorrect + " incorrect guess(es)");
+            //if all guesses are used up, AI loses.
             if(incorrect == 6)
             {
                System.out.println("The AI has used up all 6 guesses. The Player wins!");         
                break;
             }
+            //removes words in list that contain the incorrect letter
             EnglishDictionary.refineListForWordsThatDontContain(words, mostCommonLetter);
-		      for (String word : words) {
-	   		   System.out.println(word);      
-   		   }
          }
         
       }
-
-
-      
-      /*String lookup = "c";
-		int wordLength = 5;
-		
-		words = dict.getWordsThatStartWith(lookup, wordLength);
-		
-		System.out.println("Found " + words.size() + " words that start with " + lookup + " and have length of " + wordLength + ":");
-		for (String word : words) {
-			System.out.println(word);
-		}
-		
-		
-		String matching = "c_as_";
-		EnglishDictionary.refineListForWordsMatching(words, matching);
-		System.out.println("Matching phrase is " + matching + 
-				", hence the refined list should contain words with at least one c, a, and s, in the appropriate positions");
-		
-		System.out.println("Refined word list, all words must match \'" + matching + "\' \nnew size is " + words.size() + ":");
-		for (String word : words) {
-			System.out.println(word);
-		}
-		
-		System.out.println("Notice how some of the words have more than one c, a, or s. "
-				+ "This is not possible in hangman, so we need a way to specify UNIQUE wildcards. Use the '*' character instead.");
-		
-		
-		matching = "c*as*";
-		EnglishDictionary.refineListForWordsMatching(words, matching);
-		System.out.println("Matching phrase is " + matching + 
-				", hence the refined list should contain words with ONLY one c, a, and s, in the appropriate positions");
-		
-		System.out.println("Refined word list, all words must match \'" + matching + "\' \nnew size is " + words.size() + ":");
-		for (String word : words) {
-			System.out.println(word);
-		}
-		
-		lookup = "t";
-		EnglishDictionary.refineListForWordsThatDontContain(words, lookup);
-		System.out.println(lookup + " was a wrong guess, so parse out all those words that contain " + lookup); 
-		System.out.println("Refined word list, all words must NOT contain \'" + lookup + "\' \nnew size is " + words.size() + ":");
-		for (String word : words) {
-			System.out.println(word);
-      
-		}
-		*/
 	
 	}
-   
+   //function to calculate which letter appears most freuently in word list and returns the letter
    public static String wordFrequency(ArrayList<String> words, int wordLength, String[] guessedArray, int arraySize)
    {
       int iterator, iterator2, largest = 0, repeatFlag = 0;
@@ -521,6 +386,102 @@ public class HangmanGame {
          }   
 		} 
       return mostCommon;
+   }
+   
+   public static void displayHangman(int incorrect)
+   {
+      if(incorrect == 1)
+      {
+         System.out.println("");
+         System.out.println("   _______");
+         System.out.println("  |       |");
+         System.out.println("  |       |");
+         System.out.println("  |       O");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("------------");
+         System.out.println("");
+      }
+      else if(incorrect == 2)
+      {
+         System.out.println("");
+         System.out.println("   _______");
+         System.out.println("  |       |");
+         System.out.println("  |       |");
+         System.out.println("  |       O");
+         System.out.println("  |       |");
+         System.out.println("  |       |");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("------------");
+         System.out.println("");
+      }
+      else if(incorrect == 3)
+      {
+         System.out.println("");
+         System.out.println("   _______");
+         System.out.println("  |       |");
+         System.out.println("  |       |");
+         System.out.println("  |       O");
+         System.out.println("  |     --|");
+         System.out.println("  |       |");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("------------");
+         System.out.println("");
+      }
+      else if(incorrect == 4)
+      {
+         System.out.println("");
+         System.out.println("   _______");
+         System.out.println("  |       |");
+         System.out.println("  |       |");
+         System.out.println("  |       O");
+         System.out.println("  |     --|--");
+         System.out.println("  |       |");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("------------");
+         System.out.println("");
+      }            
+      else if(incorrect == 5)
+      {
+         System.out.println("");
+         System.out.println("   _______");
+         System.out.println("  |       |");
+         System.out.println("  |       |");
+         System.out.println("  |       O");
+         System.out.println("  |     --|--");
+         System.out.println("  |       |");
+         System.out.println("  |      / ");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("------------");
+         System.out.println("");
+      }                 
+      else if(incorrect == 6)
+      {
+         System.out.println("");
+         System.out.println("   _______");
+         System.out.println("  |       |");
+         System.out.println("  |       |");
+         System.out.println("  |       O");
+         System.out.println("  |     --|--");
+         System.out.println("  |       |");
+         System.out.println("  |      / \\");
+         System.out.println("  |");
+         System.out.println("  |");
+         System.out.println("------------");
+         System.out.println("");
+      }   
+           
+      System.out.println("The AI has made " + incorrect + " incorrect guess(es)");
    }
 
 }
