@@ -16,6 +16,7 @@ public class HangmanGame {
       int arraySize = 0;//variable to keep track of how many indexes in array are filled
       String mostCommonLetter, matching = "";
       int matchFlag;
+      int incorrect = 0, correct = 0;
       
       System.out.println("Enter your word for the Hangman Game: ");
       String selectedWord = scan.nextLine();
@@ -27,11 +28,11 @@ public class HangmanGame {
       System.out.println("length of word is: " + wordLength);
 
       words = dict.getWordsThatContain("", wordLength);
-      for (String word : words) {
-			System.out.println(word);
-		}
+      //for (String word : words) {
+		//	System.out.println(word);
+		//}
       
-      while(words.size() > 20)
+      while(words.size() > 1)
       {
          matchFlag = 0;
       
@@ -53,12 +54,14 @@ public class HangmanGame {
             {
                matching = matching.concat(mostCommonLetter);
                matchFlag = 1;
+               correct++;
             }
             else
             {
                matching = matching.concat("*");
             }
          }
+        
          
          System.out.println("Current String: " + matching);
 
@@ -68,9 +71,29 @@ public class HangmanGame {
             for (String word : words) {
 	   	      System.out.println(word);
 	 	      }
+            
+            if(correct == wordLength)
+            {
+               System.out.println("All letters are known, the AI guesses: " + words.get(0));
+            
+               if((words.get(0)).equals(selectedWord))
+               {
+                  System.out.println("The AI has guessed the word successfully. The AI wins!");
+               }
+               
+               break;
+               //this happens when all letters are "known"
+            }
          }
          else if(matchFlag == 0)
          {
+            incorrect++;
+            System.out.println("The AI has made " + incorrect + " incorrect guess(es)");
+            if(incorrect == 6)
+            {
+               System.out.println("The AI has used up all 6 guesses. The Player wins!");         
+               break;
+            }
             EnglishDictionary.refineListForWordsThatDontContain(words, mostCommonLetter);
 		      for (String word : words) {
 	   		   System.out.println(word);      
