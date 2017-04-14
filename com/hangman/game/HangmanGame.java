@@ -103,6 +103,8 @@ public class HangmanGame {
 		 }
 		 else if(matchFlag == 0)
 		 {
+		    //removes words in list that contain the incorrect letter
+		    EnglishDictionary.refineListForWordsThatDontContain(words, mostCommonLetter);
 		    incorrect++;
 		    System.out.println("The letter " + mostCommonLetter + " is not in the word.");
 		    //draw new hangman setup as incorrect variable increases
@@ -118,8 +120,6 @@ public class HangmanGame {
              	       }   
 		       break;
 		    }
-		    //removes words in list that contain the incorrect letter
-		    EnglishDictionary.refineListForWordsThatDontContain(words, mostCommonLetter);
 		 }
 
 	      }
