@@ -105,6 +105,14 @@ public class HangmanGame {
 		 {
 		    //removes words in list that contain the incorrect letter
 		    EnglishDictionary.refineListForWordsThatDontContain(words, mostCommonLetter);
+			 
+		    if(words.size() == 0)
+                    {
+            	    	System.out.println("There are no words left in the list.");
+            		System.out.println("This means our dictionary most likely did not contain the word.");
+            		break;
+          	    } 
+			 
 		    incorrect++;
 		    System.out.println("The letter " + mostCommonLetter + " is not in the word.");
 		    //draw new hangman setup as incorrect variable increases
