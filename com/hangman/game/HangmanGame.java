@@ -111,7 +111,11 @@ public class HangmanGame {
 		    //if all guesses are used up, AI loses.
 		    if(incorrect == 6)
 		    {
-		       System.out.println("The AI has used up all 6 guesses. The Player wins!");         
+		       System.out.println("The AI has used up all 6 guesses. The Player wins!");
+		       System.out.println("There were " + words.size() + " words remaining in the end pool: ");
+             	       for(String word: words){
+                       	System.out.println(word);
+             	       }   
 		       break;
 		    }
 		    //removes words in list that contain the incorrect letter
