@@ -41,8 +41,8 @@ public class HangmanGame {
 	      //initializes the word list with all words with same length as user's entered word
 	      words = dict.getWordsThatContain("", wordLength);
 
-	      //loops until only one word is left in the list or other conditions have been met
-	      while(words.size() > 1)
+	      //loops until a win or loss condition has been met
+	      while(true)
 	      {
 		 matchFlag = 0;
       
