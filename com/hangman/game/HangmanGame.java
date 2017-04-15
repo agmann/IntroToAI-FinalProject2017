@@ -49,10 +49,7 @@ public class HangmanGame {
 		 mostCommonLetter = wordFrequency(words, wordLength, guessedLetters, arraySize);
 
 		 System.out.println("AI guesses the letter: " + mostCommonLetter);
-
 		 guessedLetters[arraySize++] = mostCommonLetter;
-		 if(arraySize == 26)
-		    break;
 
 		 matching = "";
 		 //loop to generate string used to refine word list
@@ -129,7 +126,9 @@ public class HangmanGame {
 		       break;
 		    }
 		 }
-
+		 //break condition if somehow all letters are guessed
+		 if(arraySize == 26)
+		    break;
 	      }
 
 	}
