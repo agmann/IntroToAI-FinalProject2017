@@ -42,7 +42,7 @@ public class HangmanGame {
 	      words = dict.getWordsThatContain("", wordLength);
 
 	      //loops until a win or loss condition has been met
-	      while(true)
+	      while(words.size() > 0)
 	      {
 		 matchFlag = 0;
       
