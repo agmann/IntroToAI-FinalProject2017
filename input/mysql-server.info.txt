@@ -1,7 +1,0 @@
-# This file should define paramaters for the MySQL database server
-"dbms" : "mysql"
-"Server Name" : "192.168.20.180"
-"Port Number" : "3306"
-"User Name" : "root"
-"Password" : "ILikeToCode"
-"Default" : "entries"
