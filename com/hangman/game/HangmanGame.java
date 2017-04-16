@@ -41,30 +41,33 @@ public class HangmanGame {
 		 System.out.println("AI guesses the letter: " + mostCommonLetter);
 		 guessedLetters[arraySize++] = mostCommonLetter;
 
-		 matching = "";
-		 //loop to generate string used to refine word list
-		 for(int i = 0; i < wordLength; i++)
-		 {
-		    String letter = Character.toString(selectedWord.charAt(i));
-		    if(mostCommonLetter.equals(letter))
-		    {
-		       //if letter at position i matches, append the letter 
-		       matching = matching.concat(mostCommonLetter);
-		       matchFlag = 1;
-		       //append corrects
-		       corrects += mostCommonLetter;
-		       correct++;
-		    }
-		    else
-		    {
-		       //append * symbol is letter at position i is not a match
-		       matching = matching.concat("*");
-		    }
-		 }
+		 
 
-
-		 if(matchFlag == 1)
+		 if (selectedWord.contains(mostCommonLetter))
 		 {
+			 
+			//append corrects
+		    corrects += mostCommonLetter;
+		     
+			 matching = "";
+			 //loop to generate string used to refine word list
+			 for(int i = 0; i < wordLength; i++)
+			 {
+			    String letter = Character.toString(selectedWord.charAt(i));
+			    if(mostCommonLetter.equals(letter))
+			    {
+			       //if letter at position i matches, append the letter 
+			       matching = matching.concat(mostCommonLetter);
+			       matchFlag = 1;
+			       correct++;
+			    }
+			    else
+			    {
+			       //append * symbol is letter at position i is not a match
+			       matching = matching.concat("*");
+			    }
+			 }
+
 			
 		    //removes words in list that do not contain the correct letter at the specified position(s)
 		    EnglishDictionary.refineListForWordsMatching(words, matching);
@@ -91,7 +94,7 @@ public class HangmanGame {
 		       break;
 		    }
 		 }
-		 else if(matchFlag == 0)
+		 else
 		 {
 		    //removes words in list that contain the incorrect letter
 		    EnglishDictionary.refineListForWordsThatDontContain(words, mostCommonLetter);
