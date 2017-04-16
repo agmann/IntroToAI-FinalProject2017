@@ -173,110 +173,78 @@ public class HangmanGame {
 	//draw new hangman setup as incorrect variable increases
    	public static void displayHangman(int incorrect)
    	{
+   		
+   		System.out.println("");
+		System.out.println("   _______");
+		System.out.println("  |       |");
+		System.out.println("  |       |");
+			
    		if (incorrect == 0) {
-   			System.out.println("");
-   			System.out.println("   _______");
-   			System.out.println("  |       |");
-   			System.out.println("  |       |");
+   			
    			System.out.println("  |");
    			System.out.println("  |");
    			System.out.println("  |");
    			System.out.println("  |");
-   			System.out.println("  |");
-   			System.out.println("  |");
-   			System.out.println("------------");
-   			System.out.println("");
+   			
    		}
    		else if(incorrect == 1)
       		{
-			 System.out.println("");
-			 System.out.println("   _______");
-			 System.out.println("  |       |");
-			 System.out.println("  |       |");
+			 
 			 System.out.println("  |       O");
 			 System.out.println("  |");
 			 System.out.println("  |");
 			 System.out.println("  |");
-			 System.out.println("  |");
-			 System.out.println("  |");
-			 System.out.println("------------");
-			 System.out.println("");
+			 
       		}
 		else if(incorrect == 2)
 		{
-			 System.out.println("");
-			 System.out.println("   _______");
-			 System.out.println("  |       |");
-			 System.out.println("  |       |");
+			
 			 System.out.println("  |       O");
 			 System.out.println("  |       |");
 			 System.out.println("  |       |");
 			 System.out.println("  |");
-			 System.out.println("  |");
-			 System.out.println("  |");
-			 System.out.println("------------");
-			 System.out.println("");
+			
 		}
       		else if(incorrect == 3)
       		{
-			 System.out.println("");
-			 System.out.println("   _______");
-			 System.out.println("  |       |");
-			 System.out.println("  |       |");
+			
 			 System.out.println("  |       O");
 			 System.out.println("  |     --|");
 			 System.out.println("  |       |");
 			 System.out.println("  |");
-			 System.out.println("  |");
-			 System.out.println("  |");
-			 System.out.println("------------");
-			 System.out.println("");
+			 
       		}
      	 	else if(incorrect == 4)
       		{
-			 System.out.println("");
-			 System.out.println("   _______");
-			 System.out.println("  |       |");
-			 System.out.println("  |       |");
+			 
 			 System.out.println("  |       O");
 			 System.out.println("  |     --|--");
 			 System.out.println("  |       |");
 			 System.out.println("  |");
-			 System.out.println("  |");
-			 System.out.println("  |");
-			 System.out.println("------------");
-			 System.out.println("");
+			 
       		}            
 	       else if(incorrect == 5)
 	       {
-			 System.out.println("");
-			 System.out.println("   _______");
-			 System.out.println("  |       |");
-			 System.out.println("  |       |");
+			 
 			 System.out.println("  |       O");
 			 System.out.println("  |     --|--");
 			 System.out.println("  |       |");
 			 System.out.println("  |      / ");
-			 System.out.println("  |");
-			 System.out.println("  |");
-			 System.out.println("------------");
-			 System.out.println("");
+			 
       		}                 
       		else if(incorrect == 6)
       		{
-			 System.out.println("");
-			 System.out.println("   _______");
-			 System.out.println("  |       |");
-			 System.out.println("  |       |");
+			 
 			 System.out.println("  |       O");
 			 System.out.println("  |     --|--");
 			 System.out.println("  |       |");
 			 System.out.println("  |      / \\");
-			 System.out.println("  |");
-			 System.out.println("  |");
-			 System.out.println("------------");
-			 System.out.println("");
+			 
       		}   
+   			System.out.println("  |");
+   			System.out.println("  |");
+   			System.out.println("------------");
+   			System.out.println("");
            
       		if (incorrect != 0) System.out.println("The AI has made " + incorrect + " incorrect guess(es)");
    	}
