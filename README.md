@@ -12,9 +12,7 @@ To run this jar on Windows, run the following command in the cmd window while in
 This will execute the main method. Once it has terminated, the terminal output will declare the winner.
 If exceptions are thrown, ensure that the input directory is present and contains the words.txt. 
 
-==================
-Play the game
-==================
+==Play the Game==
 
 After launching, you will be prompted to enter a word. Use only one word, without hyphens. Use singular nouns 
 or infinitive forms of verbs. 
