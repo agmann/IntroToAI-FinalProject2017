@@ -1,4 +1,4 @@
-1 Word Selected: A
+1 	Word Selected: A
 	Letters guessed: o, i, e, a
 	# of incorrect guesses: 3 
 	Result: Win
@@ -309,5 +309,14 @@
 9/40 Losses
 31/40 Wins
 Avg. Guesses for Win = 3.03 guesses
-most commonly guessed vowels first, as expected.
-smaller hards proved more difficult than larger words based on tests.
+
+Of these 40 tests, there contain: 
+1 nine-letter word, 
+4 eight-letter words, 
+3 seven-letter words, 
+9 six-letter words,  
+9 five-letter words, 
+8 four-letter words, 
+4 three-letter words, 
+1 two-letter word, and 
+1 one-letter word. 
