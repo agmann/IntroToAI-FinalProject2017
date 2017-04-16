@@ -19,18 +19,7 @@ public class HangmanGame {
 	      int incorrect = 0, correct = 0;//variables to track number of correct and incorrect guesses
 
 	      //displays the hangman setup
-	      System.out.println("");
-	      System.out.println("   _______");
-	      System.out.println("  |       |");
-	      System.out.println("  |       |");
-	      System.out.println("  |");
-	      System.out.println("  |");
-	      System.out.println("  |");
-	      System.out.println("  |");
-	      System.out.println("  |");
-	      System.out.println("  |");
-	      System.out.println("------------");
-	      System.out.println("");
+	      displayHangman(0);
       
 	      System.out.println("Enter your word for the Hangman Game: ");
 	      String selectedWord = scan.nextLine();
@@ -133,18 +122,23 @@ public class HangmanGame {
 
 	}
 	
-	//function to calculate which letter appears most freuently in word list and returns the letter
+	//function to calculate which letter appears most frequently in word list and returns the letter
 	public static String wordFrequency(ArrayList<String> words, int wordLength, String[] guessedArray, int arraySize)
 	{
 		int iterator, iterator2, largest = 0, repeatFlag = 0;
 	        String letter;
+	        char character;
 	        String mostCommon = "";
-	        int a=0, b=0, c=0, d=0, e=0, f=0, g=0, h=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, p=0;
-	        int q=0, r=0, s=0, t=0, u=0, v=0, w=0, x=0, y=0, z=0;
+	        
+	        int[] freqs = new int[26];
+	        for (int index = 0; index < freqs.length; index++) {
+	        	freqs[index] = 0;
+	        }
       
       		for (String word : words) {
          		for(iterator = 0; iterator < wordLength; iterator++){
-            			letter = Character.toString(word.charAt(iterator));
+         				character = word.charAt(iterator);
+            			letter = Character.toString(character);
             			repeatFlag = 0;
             			//this for loop checks causes the letter to not be counted if it's been guessed already
 			        for(iterator2 = 0; iterator2 < arraySize; iterator2++)
@@ -160,241 +154,16 @@ public class HangmanGame {
 			        {
 			        	continue;
 			        }
-            
-            			if(letter.equals("a"))
-            			{
-               				a++;
-               				if(a > largest)
-               				{
-                  				largest = a;
-                  				mostCommon = "a";
-               				}
-            			}
-		    		else if(letter.equals("b"))
-		    		{
-		       			b++;
-		       			if(b > largest)
-		       			{
-			  			largest = b;
-			  			mostCommon = "b";
-		       			}
-		    		}
-            			else if(letter.equals("c"))
-            			{
-               				c++;
-              				if(c > largest)
-               				{
-              					largest = c;
-                  				mostCommon = "c";
-               				}
-           			}
-            			else if(letter.equals("d"))
-            			{
-               				d++;
-               				if(d > largest)
-               				{
-                  				largest = d;
-                  				mostCommon = "d";
-               				}
-				}
-				else if(letter.equals("e"))
-				{
-				       e++;
-				       if(e > largest)
-				       {
-				       		largest = e;
-					  	mostCommon = "e";
-				       }
-				}
-				else if(letter.equals("f"))
-				{
-				       f++;
-				       if(f > largest)
-				       {
-						largest = f;
-					  	mostCommon = "f";
-				       }
-				}
-				else if(letter.equals("g"))
-				{
-				       g++;
-				       if(g > largest)
-				       {
-						largest = g;
-						mostCommon = "g";
-				       }
-				}
-            			else if(letter.equals("h"))
-           			{
-               				h++;
-               				if(h > largest)
-               				{
-                  				largest = h;
-				                  mostCommon = "h";
-               				}
-            			}
-            			else if(letter.equals("i"))
-            			{
-			        	i++;
-               				if(i > largest)
-			                {
-                  				largest = i;
-                  				mostCommon = "i";
-               				}
-            			}
-            			else if(letter.equals("j"))
-            			{
-               				j++;
-               				if(j > largest)
-               				{
-                  				largest = j;
-                  				mostCommon = "j";
-               				}
-            			}
-            			else if(letter.equals("k"))
-            			{
-               				k++;
-               				if(k > largest)
-               				{
-                  				largest = k;
-                  				mostCommon = "k";
-               				}
-            			}
-            			else if(letter.equals("l"))
-            			{
-               				l++;
-               				if(l > largest)
-               				{
-                  				largest = l;
-                  				mostCommon = "l";
-               				}
-            			}
-            			else if(letter.equals("m"))
-            			{
-               				m++;
-               				if(m > largest)
-               				{
-                  				largest = m;
-                  				mostCommon = "m";
-               				}
-            			}
-            			else if(letter.equals("n"))
-            			{
-               				n++;
-               				if(n > largest)
-               				{
-                  				largest = n;
-                  				mostCommon = "n";
-               				}
-            			}
-            			else if(letter.equals("o"))
-            			{
-               				o++;
-               				if(o > largest)
-               				{
-                  				largest = o;
-                  				mostCommon = "o";
-               				}
-            			}
-            			else if(letter.equals("p"))
-            			{
-               				p++;
-               				if(p > largest)
-               				{
-                  				largest = p;
-                  				mostCommon = "p";
-               				}
-            			}
-            			else if(letter.equals("q"))
-            			{
-               				q++;
-               				if(q > largest)
-               				{
-                  				largest = q;
-                  				mostCommon = "q";
-               				}
-            			}
-            			else if(letter.equals("r"))
-            			{
-               				r++;
-               				if(r > largest)
-               				{
-                  				largest = r;
-                  				mostCommon = "r";
-               				}
-            			}
-            			else if(letter.equals("s"))
-            			{
-               				s++;
-               				if(s > largest)
-               				{
-                  				largest = s;
-                  				mostCommon = "s";
-               				}
-            			}
-            			else if(letter.equals("t"))
-            			{
-               				t++;
-               				if(t > largest)
-               				{
-                  				largest = t;
-                  				mostCommon = "t";
-            	   			}
-            			}
-            			else if(letter.equals("u"))
-            			{
-               				u++;
-               				if(u > largest)
-               				{
-                  				largest = u;
-                  				mostCommon = "u";
-               				}
-            			}
-            			else if(letter.equals("v"))
-            			{
-               				v++;
-               				if(v > largest)
-               				{
-                  				largest = v;
-                  				mostCommon = "v";
-               				}
-            			}
-            			else if(letter.equals("w"))
-            			{
-               				w++;
-               				if(w > largest)
-               				{
-                  				largest = w;
-				                mostCommon = "w";
-               				}
-            			}
-            			else if(letter.equals("x"))
-            			{
-               				x++;
-               				if(x > largest)
-               				{
-                  				largest = x;
-                  				mostCommon = "x";
-               				}
+			        if (!Character.isAlphabetic(character)) {
+			        	continue;
 			        }
-            			else if(letter.equals("y"))
-            			{
-               				y++;
-               				if(y > largest)
-                			{
-                  				largest = y;
-				                mostCommon = "y";
-				        }
-            			}
-            			else if(letter.equals("z"))
-            			{
-               				z++;
-               				if(z > largest)
-               				{
-                  				largest = z;
-                  				mostCommon = "z";
-               				}
-            			}
+			        int index = ((int)character - (int)('a'));
+			        freqs[index]++;
+			        if (freqs[index] > largest) {
+			        	largest = freqs[index];
+			        	mostCommon = Character.toString(character);
+			        }
+            			
          		}   
 		} 
       		return mostCommon;
@@ -403,7 +172,21 @@ public class HangmanGame {
 	//draw new hangman setup as incorrect variable increases
    	public static void displayHangman(int incorrect)
    	{
-        	if(incorrect == 1)
+   		if (incorrect == 0) {
+   			System.out.println("");
+   			System.out.println("   _______");
+   			System.out.println("  |       |");
+   			System.out.println("  |       |");
+   			System.out.println("  |");
+   			System.out.println("  |");
+   			System.out.println("  |");
+   			System.out.println("  |");
+   			System.out.println("  |");
+   			System.out.println("  |");
+   			System.out.println("------------");
+   			System.out.println("");
+   		}
+   		else if(incorrect == 1)
       		{
 			 System.out.println("");
 			 System.out.println("   _______");
@@ -494,7 +277,7 @@ public class HangmanGame {
 			 System.out.println("");
       		}   
            
-      		System.out.println("The AI has made " + incorrect + " incorrect guess(es)");
+      		if (incorrect != 0) System.out.println("The AI has made " + incorrect + " incorrect guess(es)");
    	}
 
 }
