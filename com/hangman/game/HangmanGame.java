@@ -16,7 +16,6 @@ public class HangmanGame {
 	      String corrects = ""; //String that contains correctly guessed letters
 	      int arraySize = 0;//keeps track of how many indexes in guessedLetters array are filled
 	      String mostCommonLetter, matching = "";
-	      int matchFlag;//flag variable to indicate if letter is in word
 	      int incorrect = 0, correct = 0;//variables to track number of correct and incorrect guesses
 
 	      //displays the hangman setup
@@ -34,7 +33,6 @@ public class HangmanGame {
 	      //loops until a win or loss condition has been met
 	      while(words.size() > 0)
 	      {
-		 matchFlag = 0;
       
 		 mostCommonLetter = wordFrequency(words, wordLength, corrects);
 
@@ -58,7 +56,7 @@ public class HangmanGame {
 			    {
 			       //if letter at position i matches, append the letter 
 			       matching = matching.concat(mostCommonLetter);
-			       matchFlag = 1;
+			     
 			       correct++;
 			    }
 			    else
