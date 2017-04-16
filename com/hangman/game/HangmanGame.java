@@ -134,7 +134,7 @@ public class HangmanGame {
 	//function to calculate which letter appears most frequently in word list and returns the letter
 	public static String wordFrequency(ArrayList<String> words, int wordLength, String corrects)
 	{
-		int iterator, largest = 0;
+			int iterator, largestFrequency = 0;
 	        String letter;
 	        char character;
 	        String mostCommon = "";
@@ -147,21 +147,21 @@ public class HangmanGame {
       
       		for (String word : words) {
          		for(iterator = 0; iterator < wordLength; iterator++){
-         				character = word.charAt(iterator);
-            			letter = Character.toString(character);
-            			if (!Character.isAlphabetic(character) || corrects.contains(letter)) {
-    			        	continue;
-    			        }
+         			character = word.charAt(iterator);
+            		letter = Character.toString(character);
+            		if (!Character.isAlphabetic(character) || corrects.contains(letter)) {
+    			       	continue;
+            		}
 			        
 			        int index = ((int)character - (int)('a'));
 			        freqs[index]++;
-			        if (freqs[index] > largest) {
-			        	largest = freqs[index];
+			        if (freqs[index] > largestFrequency) {
+			        	largestFrequency = freqs[index];
 			        	mostCommon = Character.toString(character);
 			        }
             			
          		}   
-		} 
+      		} 
       		return mostCommon;
    	}
    	
