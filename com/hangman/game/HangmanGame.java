@@ -13,6 +13,7 @@ public class HangmanGame {
 		
 	      Scanner scan = new Scanner(System.in);
 	      String[] guessedLetters = new String[26];//array to keep track of guessed letters
+	      String corrects = ""; //String that contains correctly guessed letters
 	      int arraySize = 0;//keeps track of how many indexes in guessedLetters array are filled
 	      String mostCommonLetter, matching = "";
 	      int matchFlag;//flag variable to indicate if letter is in word
@@ -35,7 +36,7 @@ public class HangmanGame {
 	      {
 		 matchFlag = 0;
       
-		 mostCommonLetter = wordFrequency(words, wordLength, guessedLetters, arraySize);
+		 mostCommonLetter = wordFrequency(words, wordLength, corrects);
 
 		 System.out.println("AI guesses the letter: " + mostCommonLetter);
 		 guessedLetters[arraySize++] = mostCommonLetter;
@@ -50,6 +51,8 @@ public class HangmanGame {
 		       //if letter at position i matches, append the letter 
 		       matching = matching.concat(mostCommonLetter);
 		       matchFlag = 1;
+		       //append corrects
+		       corrects += mostCommonLetter;
 		       correct++;
 		    }
 		    else
@@ -62,6 +65,7 @@ public class HangmanGame {
 
 		 if(matchFlag == 1)
 		 {
+			
 		    //removes words in list that do not contain the correct letter at the specified position(s)
 		    EnglishDictionary.refineListForWordsMatching(words, matching);
 
@@ -119,17 +123,20 @@ public class HangmanGame {
 		 if(arraySize == 26)
 		    break;
 	      }
+	      
+	      scan.close();
 
 	}
 	
 	//function to calculate which letter appears most frequently in word list and returns the letter
-	public static String wordFrequency(ArrayList<String> words, int wordLength, String[] guessedArray, int arraySize)
+	public static String wordFrequency(ArrayList<String> words, int wordLength, String corrects)
 	{
-		int iterator, iterator2, largest = 0, repeatFlag = 0;
+		int iterator, largest = 0;
 	        String letter;
 	        char character;
 	        String mostCommon = "";
 	        
+	        /* Initialize histogram array to zero */
 	        int[] freqs = new int[26];
 	        for (int index = 0; index < freqs.length; index++) {
 	        	freqs[index] = 0;
@@ -139,24 +146,9 @@ public class HangmanGame {
          		for(iterator = 0; iterator < wordLength; iterator++){
          				character = word.charAt(iterator);
             			letter = Character.toString(character);
-            			if (!Character.isAlphabetic(character)) {
+            			if (!Character.isAlphabetic(character) || corrects.contains(letter)) {
     			        	continue;
     			        }
-            			repeatFlag = 0;
-            			//this for loop checks causes the letter to not be counted if it's been guessed already
-			        for(iterator2 = 0; iterator2 < arraySize; iterator2++)
-			        {
-			        	if(letter.equals(guessedArray[iterator2]))
-			       		{
-				  		repeatFlag = 1;
-				  		break;
-			       		}
-			    	}
-            
-			        if(repeatFlag == 1)
-			        {
-			        	continue;
-			        }
 			        
 			        int index = ((int)character - (int)('a'));
 			        freqs[index]++;
