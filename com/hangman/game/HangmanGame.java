@@ -94,8 +94,7 @@ public class HangmanGame {
 		 }
 		 else
 		 {
-		    //removes words in list that contain the incorrect letter
-		    EnglishDictionary.refineListForWordsThatDontContain(words, mostCommonLetter);
+		    
 			 
 		    if(words.size() == 0)
                     {
@@ -119,13 +118,15 @@ public class HangmanGame {
              	       }   
 		       break;
 		    }
+		  //removes words in list that contain the incorrect letter
+		    EnglishDictionary.refineListForWordsThatDontContain(words, mostCommonLetter);
 		 }
 		 //break condition if somehow all letters are guessed
 		 if(arraySize == 26)
 		    break;
-	      }
+	   }
 	      
-	      scan.close();
+	   scan.close();
 
 	}
 	
