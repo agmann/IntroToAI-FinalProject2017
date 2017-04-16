@@ -139,6 +139,9 @@ public class HangmanGame {
          		for(iterator = 0; iterator < wordLength; iterator++){
          				character = word.charAt(iterator);
             			letter = Character.toString(character);
+            			if (!Character.isAlphabetic(character)) {
+    			        	continue;
+    			        }
             			repeatFlag = 0;
             			//this for loop checks causes the letter to not be counted if it's been guessed already
 			        for(iterator2 = 0; iterator2 < arraySize; iterator2++)
@@ -154,9 +157,7 @@ public class HangmanGame {
 			        {
 			        	continue;
 			        }
-			        if (!Character.isAlphabetic(character)) {
-			        	continue;
-			        }
+			        
 			        int index = ((int)character - (int)('a'));
 			        freqs[index]++;
 			        if (freqs[index] > largest) {
