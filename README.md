@@ -1,4 +1,4 @@
-# IntroToAI-FinalProject2017
+# Intro To AI - Final Project, Spring 2017
 
 This project was completed by Kenneth Li and Austin Mann.
 
