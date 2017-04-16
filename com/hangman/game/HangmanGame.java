@@ -118,7 +118,7 @@ public class HangmanGame {
              	       }   
 		       break;
 		    }
-		  //removes words in list that contain the incorrect letter
+		    //removes words in list that contain the incorrect letter
 		    EnglishDictionary.refineListForWordsThatDontContain(words, mostCommonLetter);
 		 }
 		 //break condition if somehow all letters are guessed
