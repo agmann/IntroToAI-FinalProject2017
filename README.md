@@ -11,7 +11,7 @@ To run this jar on Windows, run the following command in the cmd window while in
   
 This will execute the main method. Once it has terminated, the terminal output will declare the winner.
 If exceptions are thrown, ensure that the input directory is present and contains the words.txt. 
-This application was developed using the Eclipse IDE platfrom. THe easiest way to recompile is to import this existing project into
+This application was developed using the Eclipse IDE platform. THe easiest way to recompile is to import this existing project into
 Eclipse and use the automated build tools. 
 
 # Play the Game
